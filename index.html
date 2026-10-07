@@ -1,0 +1,450 @@
+```html
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Баярлалаа, багш аа | 12-1 анги</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #fff7e6, #ffe4ec, #e8e0ff);
+            color: #3d3045;
+            min-height: 100vh;
+        }
+
+        /* Толгой хэсэг */
+        header {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before,
+        header::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.35;
+        }
+
+        header::before {
+            width: 350px;
+            height: 350px;
+            background: #ffd166;
+            top: -100px;
+            left: -100px;
+        }
+
+        header::after {
+            width: 400px;
+            height: 400px;
+            background: #cdb4db;
+            bottom: -150px;
+            right: -100px;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .school {
+            font-size: 18px;
+            letter-spacing: 3px;
+            color: #8b5e83;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 72px;
+            color: #6d3b67;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0 #ffffff;
+        }
+
+        .subtitle {
+            font-size: 28px;
+            margin-bottom: 35px;
+            color: #5c4a62;
+        }
+
+        .class-name {
+            display: inline-block;
+            background: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #a0527d;
+            box-shadow: 0 10px 30px rgba(100, 60, 100, 0.15);
+        }
+
+        .heart {
+            font-size: 70px;
+            margin-bottom: 15px;
+            animation: beat 1.5s infinite;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* Үндсэн хэсэг */
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            color: #6d3b67;
+            margin-bottom: 45px;
+        }
+
+        .letter {
+            background: rgba(255,255,255,0.9);
+            border-radius: 25px;
+            padding: 55px;
+            box-shadow: 0 15px 50px rgba(80, 50, 80, 0.12);
+            line-height: 1.9;
+            font-size: 19px;
+        }
+
+        .letter h3 {
+            color: #a0527d;
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        .letter p {
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 35px;
+            font-weight: bold;
+            color: #6d3b67;
+            font-size: 20px;
+        }
+
+        /* Талархлын картууд */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 22px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(80,50,80,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card .icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: #8b4f7b;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            color: #625668;
+        }
+
+        /* Төгсгөл */
+        .final {
+            text-align: center;
+            background: linear-gradient(135deg, #6d3b67, #a0527d);
+            color: white;
+            border-radius: 35px;
+            padding: 70px 30px;
+        }
+
+        .final h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            font-size: 21px;
+            line-height: 1.8;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .button {
+            margin-top: 35px;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            background: white;
+            color: #6d3b67;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            color: #6d5369;
+            font-size: 16px;
+        }
+
+        /* Гар утас */
+        @media (max-width: 750px) {
+            h1 {
+                font-size: 48px;
+            }
+
+            .subtitle {
+                font-size: 21px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .letter {
+                padding: 30px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .final h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Нүүр хэсэг -->
+    <header>
+        <div class="hero">
+
+            <div class="heart">💐</div>
+
+            <div class="school">
+                12-1 АНГИЙН СУРАГЧДЫН ЗҮГЭЭС
+            </div>
+
+            <h1>Баярлалаа, багш аа!</h1>
+
+            <p class="subtitle">
+                Бидний ирээдүйд гэрэл нэмсэн танд зориулав.
+            </p>
+
+            <div class="class-name">
+                12-1 анги ❤️
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Захидал -->
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">
+                💌 Талархлын захидал
+            </h2>
+
+            <div class="letter">
+
+                <h3>Эрхэм хүндэт багшдаа,</h3>
+
+                <p>
+                    Бидний амьдралын хамгийн үнэ цэнтэй үеүүдийн нэг болох
+                    сурагч насанд маань мэдлэг, урам зориг, итгэл найдвар
+                    хайрлан, биднийг үргэлж дэмжиж ирсэн танд
+                    12-1 ангийн нийт сурагчдынхаа өмнөөс чин сэтгэлээсээ
+                    талархаж байна.
+                </p>
+
+                <p>
+                    Та бидэнд зөвхөн хичээл заагаад зогсохгүй,
+                    зөв хүн байх, хариуцлагатай байх, алдаанаасаа суралцах,
+                    мөрөөдлийнхөө төлөө тууштай хичээхийг үлгэрлэн харуулсан.
+                </p>
+
+                <p>
+                    Заримдаа бидний гаргасан алдааг тэвчээртэйгээр засаж,
+                    амжилт гаргасан мөч бүрд маань урам өгч,
+                    хүнд үед маань итгэл найдвар өгч байсан
+                    таны үг бүр бидний сэтгэлд үлдэх болно.
+                </p>
+
+                <p>
+                    Бидний өнөөдрийн мэдлэг, маргаашийн мөрөөдөл,
+                    ирээдүйн зорилгын нэг хэсэгт таны хөдөлмөр,
+                    таны сэтгэл шингэсэн гэдгийг бид хэзээ ч мартахгүй.
+                </p>
+
+                <p>
+                    Цаашдын амьдралынхаа замд бид хаана ч хүрсэн,
+                    ямар ч мэргэжил эзэмшсэн таны бидэнд заасан
+                    хичээл, өгсөн зөвлөгөө, итгэл дэмжлэгийг
+                    үргэлж санаж явах болно.
+                </p>
+
+                <p>
+                    Танд эрүүл энх, аз жаргал, баяр баясал,
+                    ажил үйлсэд тань үргэлж их амжилт хүсье.
+                    Бидний төлөө зориулсан цаг хугацаа,
+                    хичээл зүтгэл бүхэнд тань
+                    <strong>баярлалаа.</strong>
+                </p>
+
+                <div class="signature">
+                    Хүндэтгэсэн,<br>
+                    12-1 ангийн нийт сурагчид ❤️
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Талархлын шалтгаан -->
+    <section>
+
+        <div class="container">
+
+            <h2 class="section-title">
+                🌷 Танд баярлах шалтгаанууд
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="icon">📚</div>
+                    <h3>Мэдлэг</h3>
+                    <p>
+                        Бидэнд үнэ цэнтэй мэдлэг, чадвар,
+                        шинэ зүйлийг сурах хүсэл тэмүүллийг
+                        өгсөнд тань баярлалаа.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">💖</div>
+                    <h3>Сэтгэл</h3>
+                    <p>
+                        Сурагч бүрээ ойлгож, сонсож,
+                        үргэлж дэмжиж ирсэн
+                        халамжтай сэтгэлд тань баярлалаа.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🌟</div>
+                    <h3>Урам зориг</h3>
+                    <p>
+                        Биднийг өөртөө итгэж,
+                        мөрөөдлөө биелүүлэхэд
+                        үргэлж урамшуулж ирсэнд баярлалаа.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Төгсгөлийн хэсэг -->
+    <section>
+
+        <div class="container">
+
+            <div class="final">
+
+                <h2>Бид таныг хэзээ ч мартахгүй. ❤️</h2>
+
+                <p>
+                    Багш хүн гэдэг зөвхөн мэдлэг түгээгч биш,
+                    харин сурагчдынхаа ирээдүйд итгэл найдвар
+                    асааж өгдөг хүн юм.
+                    <br><br>
+                    Бидний амьдралд гэрэл нэмсэн
+                    эрхэм багшдаа дахин нэг удаа
+                    <strong>БАЯРЛАЛАА!</strong>
+                </p>
+
+                <button class="button" onclick="showMessage()">
+                    💌 Талархлын мэндчилгээ
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        © 2026 | 12-1 анги | Багшдаа зориулсан талархлын вебсайт
+    </footer>
+
+
+    <script>
+
+        function showMessage() {
+            alert(
+                "Эрхэм багшдаа! ❤️\n\n" +
+                "Бидний төлөө хийсэн бүх зүйлд тань баярлалаа.\n" +
+                "Таны шавь байсандаа бид үргэлж бахархах болно.\n\n" +
+                "— 12-1 анги —"
+            );
+        }
+
+    </script>
+
+</body>
+</html>
+```
